@@ -288,6 +288,22 @@
 
                 </exclusion>
 
+                <exclusion>
+
+                    <artifactId>tomcat-embed-websocket</artifactId>
+
+                    <groupId>org.apache.tomcat.embed</groupId>
+
+                </exclusion>
+
+                <exclusion>
+
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+
+                    <groupId>org.springframework.boot</groupId>
+
+                </exclusion>
+
             </exclusions>
 
         </dependency>
@@ -333,6 +349,18 @@
             <artifactId>easyexcel</artifactId>
 
             <version>3.1.0</version>
+
+            <exclusions>
+
+                <exclusion>
+
+                    <artifactId>commons-compress</artifactId>
+
+                    <groupId>org.apache.commons</groupId>
+
+                </exclusion>
+
+            </exclusions>
 
         </dependency>
 
@@ -508,7 +536,15 @@
 
         </dependency>
 
+        <dependency>
 
+            <groupId>org.apache.commons</groupId>
+
+            <artifactId>commons-compress</artifactId>
+
+            <version>1.21</version>
+
+        </dependency>
 
         <!-- 引入Druid依赖，阿里巴巴所提供的数据源 -->
 
