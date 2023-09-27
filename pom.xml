@@ -396,32 +396,16 @@
 
         </dependency>
 
-        <dependency>
-
+              <dependency>
             <groupId>com.baomidou</groupId>
-
             <artifactId>mybatis-plus-extension</artifactId>
-
-            <version>3.5.3.1</version>
-
+            <version>3.1.0</version>
         </dependency>
-
         <!--添加mybatis-plus基础包-->
-
         <dependency>
-
             <groupId>com.baomidou</groupId>
-
             <artifactId>mybatis-plus-boot-starter</artifactId>
-
-            <version>3.5.3.1</version>
-
-            <exclusions>
-
-                
-
-            </exclusions>
-
+            <version>3.0.7.1</version>
         </dependency>
 
         <!--lombok-->
