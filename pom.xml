@@ -14,7 +14,7 @@
 
         <version>2.6.15</version>
 
-        <relativePath />
+        <relativePath/>
 
     </parent>
 
@@ -159,7 +159,7 @@
 
         <dependency>
 
-            <gr oupId>com.github.dozermapper</groupId>
+            <gr oupId="oupId">com.github.dozermapper
 
             <artifactId>dozer-spring-boot-starter</artifactId>
 
@@ -179,7 +179,7 @@
 
             </exclusions>
 
-        </dependency>
+        
 
 
 
@@ -531,7 +531,7 @@
 
             <artifactId>tomcat-embed-core</artifactId>
 
-            <version>9.0.80</version>
+            <version>9.0.81</version>
 
         </dependency>
 
@@ -615,7 +615,7 @@
 
         </dependency>
 
-    </dependencies>
+    
 
 
 
@@ -727,6 +727,6 @@
 
     </build>
 
-</project>
+</gr></dependency></dependencies></project>
 
 
