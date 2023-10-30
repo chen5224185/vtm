@@ -1,732 +1,191 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <parent>
-
-        <groupId>org.springframework.boot</groupId>
-
-        <artifactId>spring-boot-starter-parent</artifactId>
-
-        <version>2.6.15</version>
-
-        <relativePath />
-
-    </parent>
-
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sgm</groupId>
+        <artifactId>sgm-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath/><!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.sgm.tvpgi</groupId>
+    <artifactId>tvpgi-biz</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>tvpgi-biz</name>
+    <description>TVPGI PROJECT</description>
 
-    <artifactId>VTM</artifactId>
-
-    <packaging>war</packaging>
-
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+    </properties>
 
 
     <dependencies>
-
+        <!--参数校验-->
         <dependency>
-
-            <groupId>org.freemarker</groupId>
-
-            <artifactId>freemarker</artifactId>
-
-            <version>2.3.30</version>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>net.sf.jtidy</groupId>
-
-            <artifactId>jtidy</artifactId>
-
-            <version>r938</version>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>io.netty</groupId>
-
-            <artifactId>netty-all</artifactId>
-
-            <version>4.1.90.Final</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>netty-codec</artifactId>
-
-                    <groupId>io.netty</groupId>
-
-                </exclusion>
-
-                <exclusion>
-
-                    <artifactId>netty-codec-haproxy</artifactId>
-
-                    <groupId>io.netty</groupId>
-
-                </exclusion>
-
-                <exclusion>
-
-                    <artifactId>netty-handler</artifactId>
-
-                    <groupId>io.netty</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.apache.shiro</groupId>
-
-            <artifactId>shiro-spring</artifactId>
-
-            <version>1.10.0</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>shiro-web</artifactId>
-
-                    <groupId>org.apache.shiro</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>com.auth0</groupId>
-
-            <artifactId>java-jwt</artifactId>
-
-            <version>3.19.1</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>jackson-databind</artifactId>
-
-                    <groupId>com.fasterxml.jackson.core</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-
-
-   <dependency>
-    <groupId>cn.hutool</groupId>
-    <artifactId>hutool-all</artifactId>
-    <version>5.8.22</version>
-</dependency>
-
-
-        <dependency>
-
-            <groupId>com.google.code.gson</groupId>
-
-            <artifactId>gson</artifactId>
-
-            <version>2.8.9</version>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <gr oupId>com.github.dozermapper</groupId>
-
-            <artifactId>dozer-spring-boot-starter</artifactId>
-
-            <version>6.5.2</version>
-
-            <exclusions>
-
-                
-
-                <exclusion>
-
-                    <artifactId>dozer-spring-boot-autoconfigure</artifactId>
-
-                    <groupId>com.github.dozermapper</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>io.swagger</groupId>
-
-            <artifactId>swagger-annotations</artifactId>
-
-            <version>1.5.21</version>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.apache.httpcomponents</groupId>
-
-            <artifactId>httpclient</artifactId>
-
-            <version>4.5.13</version>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.apache.httpcomponents</groupId>
-
-            <artifactId>httpmime</artifactId>
-
-            <version>4.5.13</version>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>com.fasterxml.jackson.core</groupId>
-
-            <artifactId>jackson-databind</artifactId>
-
-            <version>2.13.4.1</version>
-
-        </dependency>
-
-
-
-
-
-        <dependency>
-
-            <groupId>org.apache.httpcomponents</groupId>
-
-            <artifactId>fluent-hc</artifactId>
-
-            <version>4.5.13</version>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.yaml</groupId>
-
-            <artifactId>snakeyaml</artifactId>
-
-            <version>2.0</version>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.springframework.boot</groupId>
-
-            <artifactId>spring-boot-starter</artifactId>
-
-            <version>3.0.0</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>snakeyaml</artifactId>
-
-                    <groupId>org.yaml</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.springframework.boot</groupId>
-
-            <artifactId>spring-boot-starter-test</artifactId>
-
-            <version>3.1.0</version>
-
-            <exclusions>
-
-                
-
-            </exclusions>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.springframework.boot</groupId>
-
-            <artifactId>spring-boot-starter-web</artifactId>
-
-            <version>2.5.15</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>jackson-databind</artifactId>
-
-                    <groupId>com.fasterxml.jackson.core</groupId>
-
-                </exclusion>
-
-                <exclusion>
-
-                    <artifactId>tomcat-embed-core</artifactId>
-
-                    <groupId>org.apache.tomcat.embed</groupId>
-
-                </exclusion>
-
-                <exclusion>
-
-                    <artifactId>tomcat-embed-websocket</artifactId>
-
-                    <groupId>org.apache.tomcat.embed</groupId>
-
-                </exclusion>
-
-                <exclusion>
-
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-
-                    <groupId>org.springframework.boot</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.mybatis.spring.boot</groupId>
-
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-
-            <version>2.1.2</version>
-
-            <exclusions>
-
-                
-
-                <exclusion>
-
-                    <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
-
-                    <groupId>org.mybatis.spring.boot</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.jsoup</groupId>
-
-            <artifactId>jsoup</artifactId>
-
-            <version>1.15.3</version>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>com.alibaba</groupId>
-
-            <artifactId>easyexcel</artifactId>
-
-            <version>3.1.0</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>commons-compress</artifactId>
-
-                    <groupId>org.apache.commons</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-              <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-            <version>3.5.3.1</version>
-        </dependency>
-        <!--添加mybatis-plus基础包-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.7.1</version>
-        </dependency>
-
-        <!--lombok-->
-
-        <dependency>
-
-            <groupId>org.projectlombok</groupId>
-
-            <artifactId>lombok</artifactId>
-
-            <scope>provided</scope>
-
-            <optional>true</optional>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.mapstruct</groupId>
-
-            <artifactId>mapstruct</artifactId>
-
-            <version>1.5.5.Final</version>
-
-        </dependency>
-
-        <!--解决和lombok出现的异常-->
-
-        <dependency>
-
-            <groupId>org.mapstruct</groupId>
-
-            <artifactId>mapstruct-processor</artifactId>
-
-            <version>1.5.5.Final</version>
-
-        </dependency>
-
-        <dependency>
-
             <groupId>org.hibernate.validator</groupId>
-
             <artifactId>hibernate-validator</artifactId>
+        </dependency>
 
+
+        <!--		lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
 
         <!-- 添加oracle jdbc driver -->
-
         <dependency>
-
             <groupId>com.oracle.database.jdbc</groupId>
-
             <artifactId>ojdbc8</artifactId>
-
         </dependency>
 
 
-
         <dependency>
-
-            <groupId>org.springdoc</groupId>
-
-            <artifactId>springdoc-openapi-ui</artifactId>
-
-            <version>1.6.15</version>
-
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
         </dependency>
 
-
-
+        <!--添加日志收集模块-->
         <dependency>
-
-            <groupId>org.springframework.boot</groupId>
-
-            <artifactId>spring-boot-starter-aop</artifactId>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.springframework</groupId>
-
-            <artifactId>spring-test</artifactId>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.springframework.boot</groupId>
-
-            <artifactId>spring-boot-configuration-processor</artifactId>
-
+            <groupId>com.sgm.log</groupId>
+            <artifactId>log-collect</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
             <optional>true</optional>
-
         </dependency>
-
+        <!--		数据连接池-->
         <dependency>
-
-            <groupId>com.github.xiaoymin</groupId>
-
-            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
-
-            <version>4.1.0</version>
-
-            <exclusions>
-
-                <exclusion>
-
-                    <artifactId>jackson-databind</artifactId>
-
-                    <groupId>com.fasterxml.jackson.core</groupId>
-
-                </exclusion>
-
-            </exclusions>
-
-        </dependency>
-
-        <dependency>
-
-            <groupId>org.apache.tomcat.embed</groupId>
-
-            <artifactId>tomcat-embed-core</artifactId>
-
-            <version>9.0.80</version>
-
-        </dependency>
-
-
-
-        <dependency>
-
-            <groupId>org.apache.commons</groupId>
-
-            <artifactId>commons-compress</artifactId>
-
-            <version>1.21</version>
-
-        </dependency>
-
-        <!-- 引入Druid依赖，阿里巴巴所提供的数据源 -->
-
-        <dependency>
-
             <groupId>com.alibaba</groupId>
-
             <artifactId>druid-spring-boot-starter</artifactId>
-
-            <version>1.1.13</version>
-
         </dependency>
 
         <dependency>
-
-            <groupId>com.alibaba</groupId>
-
-            <artifactId>fastjson</artifactId>
-
-            <version>1.2.83</version>
-
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-
-        <dependency>
-
-            <groupId>com.google.guava</groupId>
-
-            <artifactId>guava</artifactId>
-
-            <version>32.0.0-jre</version>
-
-        </dependency>
-
 
 
         <dependency>
-
-            <groupId>org.mybatis</groupId>
-
-            <artifactId>mybatis</artifactId>
-
-            <version>3.5.10</version>
-
-            <optional>true</optional>
-
+            <groupId>com.sgm.common</groupId>
+            <artifactId>common-service</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-
-            <groupId>org.apache.shiro</groupId>
-
-            <artifactId>shiro-web</artifactId>
-
-            <version>1.12.0</version>
-
+            <groupId>com.xiaofeng.boot</groupId>
+            <artifactId>system-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!--数据库密码加密 解密-->
+
+        <!-- hutool相关子依赖-->
+        <!--    <dependency>-->
+        <!--      <groupId>cn.hutool</groupId>-->
+        <!--      <artifactId>hutool-all</artifactId>-->
+        <!--      <version>${hutool.version}</version>-->
+        <!--    </dependency>-->
+
 
         <dependency>
-
-            <groupId>com.github.ulisesbocchio</groupId>
-
-            <artifactId>jasypt-spring-boot-starter</artifactId>
-
-            <version>3.0.3</version>
-
+            <groupId>com.sgm</groupId>
+            <artifactId>mybatis-base</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.5.Final</version>
+        </dependency>
+        <!--解决和lombok出现的异常-->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.5.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xiaofeng</groupId>
+            <artifactId>tvpgi-api</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
 
     </dependencies>
 
-
-
     <build>
-
-        <finalName>VTM</finalName>
-
+        <!-- 设置构建的 jar 包名 -->
+        <finalName>${project.artifactId}-${project.version}-${profiles.active}</finalName>
         <plugins>
-
             <plugin>
-
                 <groupId>org.springframework.boot</groupId>
-
                 <artifactId>spring-boot-maven-plugin</artifactId>
-
-                <version>2.2.13.RELEASE</version>
-
+                <version>${spring-boot.version}</version>
                 <executions>
-
                     <execution>
-
                         <goals>
-
                             <goal>repackage</goal>
-
                         </goals>
-
                         <configuration>
-
-                            <outputDirectory>${basedir}/../war/</outputDirectory>
-
+                            <outputDirectory>target</outputDirectory>
                         </configuration>
-
                     </execution>
-
                 </executions>
-
                 <configuration>
-
                     <fork>false</fork>
-
                     <!-- spring-boot:run 中文乱码解决 -->
-
                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
-
                 </configuration>
-
             </plugin>
-
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
-
                 <artifactId>maven-compiler-plugin</artifactId>
-
                 <configuration>
-
                     <source>${java.version}</source>
-
                     <target>${java.version}</target>
-
                 </configuration>
-
             </plugin>
-
             <plugin>
-
                 <groupId>org.apache.maven.plugins</groupId>
-
                 <artifactId>maven-surefire-plugin</artifactId>
-
                 <configuration>
-
                     <skip>true</skip>
-
                 </configuration>
-
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                    <skipSource>true</skipSource>
+                </configuration>
             </plugin>
 
         </plugins>
-
         <resources>
-
             <resource>
-
                 <directory>src/main/resources</directory>
-
                 <filtering>true</filtering>
-
                 <excludes>
-
                     <exclude>profiles/**</exclude>
-
                 </excludes>
-
             </resource>
-
             <resource>
-
                 <!-- 这里是关键！根据不同的环境，把对应文件夹里的配置文件打包 -->
-
                 <directory>src/main/resources/profiles/${profiles.active}</directory>
-
                 <filtering>true</filtering>
-
             </resource>
-
         </resources>
-
     </build>
 
+
 </project>
-
-
